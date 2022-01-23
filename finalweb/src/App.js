@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Peer from 'peerjs';
 import './App.css';
-
+import './main.css';
+import Derevo from './LemonTree.png';
 function App() {
   const [peerId, setPeerId] = useState('');
   const [rPIdValue, sRPIdValue] = useState('');
@@ -49,11 +50,22 @@ function App() {
     });
   }
 
+  const headerr =(
+    <div>
+      <ul class="mb-0">
+
+        <li class="li1" ><img class="image" src={Derevo} alt=""/></li>
+        <li><a href="https://lemon-tree.herokuapp.com/">Main</a></li>
+        
+        </ul>
+    </div>
+  )
   return(
       <div className="App">
+        {headerr}
         <h1>Current user id {peerId}</h1>
         <input type="text" value={rPIdValue} onChange={e => sRPIdValue(e.target.value)} />
-        <button class = "button" onClick={() => call(rPIdValue)}>Call</button>
+        <button onClick={() => call(rPIdValue)}>Call</button>
         <div>
           <video ref={currentUserVideoRef}/>
         </div>
